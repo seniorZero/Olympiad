@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     vector<Plug*> plugsArray;
     
     ifstream file("C:\\Users\\Dorian\\Desktop\\Sources"
-                  "\\Olympiad\\O7\\Исходный файл.txt");
+                  "\\Olympiad\\O7\\РСЃС…РѕРґРЅС‹Р№ С„Р°Р№Р».txt");
     if(file.is_open())
     {
         string  line;
