@@ -12,14 +12,14 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
 
     /**
-     * n - СЂР°Р·РјРµСЂ РіРёРїРµСЂ РєСѓР±Р°
-     * k - СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ.
+     * n - размер гипер куба
+     * k - размерность.
      */
 
     int n = 0, k = 0;
 
     ifstream file("C:\\Users\\Dorian\\Desktop\\Sources"
-                  "\\Olympiad\\O6\\РСЃС…РѕРґРЅС‹Р№ С„Р°Р№Р».txt");
+                  "\\Olympiad\\O6\\Исходный файл.txt");
     if(file.is_open())
     {
         string  line,strVar1,strVar2;
@@ -74,7 +74,7 @@ getFibonacciNum(int n)
     }
     else
     {
-        //РІ СЌС‚РѕР№ СЃС‚СЂРѕРєРµ РІС‹Р·С‹РІР°РµРј С„СѓРЅРєС†РёСЋ СЂРµРєСѓСЂСЃРёРІРЅРѕ
+        //в этой строке вызываем функцию рекурсивно
         return getFibonacciNum(n-1)+getFibonacciNum(n-2);
     }
 }
