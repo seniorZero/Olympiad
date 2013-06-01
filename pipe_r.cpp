@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 struct Plug
 {
     int currentWeight;
