@@ -20,9 +20,9 @@ int main(int argc, char *argv[])
     vector<Point*>  pointArray;
 
     ifstream file("C:\\Users\\Dorian\\Desktop\\Sources"
-                  "\\Olympiad\\O10\\Исходный файл.txt");
+                  "\\Olympiad\\O10\\РСЃС…РѕРґРЅС‹Р№ С„Р°Р№Р».txt");
 
-    /** Откроем файл и распарсим строку **/
+    /** РћС‚РєСЂРѕРµРј С„Р°Р№Р» Рё СЂР°СЃРїР°СЂСЃРёРј СЃС‚СЂРѕРєСѓ **/
 
     if(file.is_open())
     {
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
                 pointArray.push_back(new Point());
                 pointArray.back()->num = lineNumber-1;
                 char *pch = strtok(const_cast<char*>(line.c_str())," ");
-                /** Инициализируем переменные */
+                /** РРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РїРµСЂРµРјРµРЅРЅС‹Рµ */
                 for(int i = 0;pch != NULL; ++i)
                 {
                     switch(i)
@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
             }
             // ---------------------------------------------------------------------
         }
-        /** Найдем правую нижнюю точку*/
+        /** РќР°Р№РґРµРј РїСЂР°РІСѓСЋ РЅРёР¶РЅСЋСЋ С‚РѕС‡РєСѓ*/
         int rX = pointArray.at(0)->X,
             dY = pointArray.at(0)->Y;
         for(unsigned int i = 0; i < pointArray.size(); ++i)
@@ -65,15 +65,15 @@ int main(int argc, char *argv[])
                  << " Y:"  << pointArray.at(i)->Y << endl;
         }
 
-        /** Перенесем координаты центра так,
-         *  что бы все точки оказались левее
-         *  и выше.
+        /** РџРµСЂРµРЅРµСЃРµРј РєРѕРѕСЂРґРёРЅР°С‚С‹ С†РµРЅС‚СЂР° С‚Р°Рє,
+         *  С‡С‚Рѕ Р±С‹ РІСЃРµ С‚РѕС‡РєРё РѕРєР°Р·Р°Р»РёСЃСЊ Р»РµРІРµРµ
+         *  Рё РІС‹С€Рµ.
          */
-
+         
         rX++;dY--;
 
         cout << rX << " " << dY << endl;
-        /** Найдем углы и расстояния*/
+        /** РќР°Р№РґРµРј СѓРіР»С‹ Рё СЂР°СЃСЃС‚РѕСЏРЅРёСЏ*/
         for(unsigned int i = 0; i < pointArray.size(); ++i)
         {
             pointArray.at(i)->angle = atan((static_cast<double>(dY - pointArray.at(i)->Y))/
@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
             pointArray.at(i)->distance=sqrt(pow(static_cast<double>(pointArray.at(i)->X-rX),2)+
                                             pow(static_cast<double>(pointArray.at(i)->Y-dY),2));
         }
-        /** Сортируем массив по убыванию угла*/
+        /** РЎРѕСЂС‚РёСЂСѓРµРј РјР°СЃСЃРёРІ РїРѕ СѓР±С‹РІР°РЅРёСЋ СѓРіР»Р°*/
         for(unsigned int i = 0; i < pointArray.size()-1; ++i)
         {
             for(unsigned int k = 0; k < pointArray.size()-1; ++k)
@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
             }
         }
 
-        /** Выведем ответ*/
+        /** Р’С‹РІРµРґРµРј РѕС‚РІРµС‚*/
         cout << "Answer is:" << endl;
         for(unsigned int i = 0; i < pointArray.size(); ++i)
         {
