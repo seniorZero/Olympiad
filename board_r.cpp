@@ -4,7 +4,7 @@
 
 using namespace std;
 
-/** Структура ячейки поля*/
+/** РЎС‚СЂСѓРєС‚СѓСЂР° СЏС‡РµР№РєРё РїРѕР»СЏ*/
 struct Cell
 {
     int  value;
@@ -16,9 +16,9 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
 
     ifstream file("C:\\Users\\Dorian\\Desktop\\Sources"
-                  "\\Olympiad\\O8\\Исходный файл.txt");
+                  "\\Olympiad\\O8\\РСЃС…РѕРґРЅС‹Р№ С„Р°Р№Р».txt");
 
-    /** Откроем файл и распарсим строку **/
+    /** РћС‚РєСЂРѕРµРј С„Р°Р№Р» Рё СЂР°СЃРїР°СЂСЃРёРј СЃС‚СЂРѕРєСѓ **/
 
     if(file.is_open())
     {
@@ -26,9 +26,9 @@ int main(int argc, char *argv[])
         int     lineNumber = 0;
 
         /**
-         * N - длина доски
-         * M - ширина доски
-         * K - количество фигурок
+         * N - РґР»РёРЅР° РґРѕСЃРєРё
+         * M - С€РёСЂРёРЅР° РґРѕСЃРєРё
+         * K - РєРѕР»РёС‡РµСЃС‚РІРѕ С„РёРіСѓСЂРѕРє
          */
 
         int     N,M,K;
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
             if(lineNumber == 1)
             {
                 char *pch = strtok(const_cast<char*>(line.c_str())," ");
-                /** Инициализируем переменные N,M,K*/
+                /** РРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РїРµСЂРµРјРµРЅРЅС‹Рµ N,M,K*/
                 for(int i = 0;pch != NULL; ++i)
                 {
                     switch(i)
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
                     }
                     pch = strtok(NULL, " ");
                 }
-                /** Выделим память для массива*/
+                /** Р’С‹РґРµР»РёРј РїР°РјСЏС‚СЊ РґР»СЏ РјР°СЃСЃРёРІР°*/
                 boardArray = new Cell*[N];
                 for(int i = 0; i <= N; ++i)
                 {
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
             else
             {
                 char *pch = strtok(const_cast<char*>(line.c_str())," ");
-                /** Инициализируем массив значениями*/
+                /** РРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РјР°СЃСЃРёРІ Р·РЅР°С‡РµРЅРёСЏРјРё*/
                 for(int i = 0;pch != NULL; ++i)
                 {
                     boardArray[lineNumber-2][i].value   = atoi(pch);
@@ -77,8 +77,8 @@ int main(int argc, char *argv[])
             // ---------------------------------------------------------------------
         }
         cout << endl;
-        /** Выведем доску на экран и найдем наибольший элемент*/
-        /** Координаты наибольшего значения поля*/
+        /** Р’С‹РІРµРґРµРј РґРѕСЃРєСѓ РЅР° СЌРєСЂР°РЅ Рё РЅР°Р№РґРµРј РЅР°РёР±РѕР»СЊС€РёР№ СЌР»РµРјРµРЅС‚*/
+        /** РљРѕРѕСЂРґРёРЅР°С‚С‹ РЅР°РёР±РѕР»СЊС€РµРіРѕ Р·РЅР°С‡РµРЅРёСЏ РїРѕР»СЏ*/
         int X_max_v,Y_max_v;
         int max_v = 0;
         for(int i = 0; i < N; ++i)
@@ -105,11 +105,11 @@ int main(int argc, char *argv[])
         }
 
         /**
-         * Начнем передвигать фигуру по всему полю
-         * пока в ее окресности не будут все положи
-         * тельные числа
+         * РќР°С‡РЅРµРј РїРµСЂРµРґРІРёРіР°С‚СЊ С„РёРіСѓСЂСѓ РїРѕ РІСЃРµРјСѓ РїРѕР»СЋ
+         * РїРѕРєР° РІ РµРµ РѕРєСЂРµСЃРЅРѕСЃС‚Рё РЅРµ Р±СѓРґСѓС‚ РІСЃРµ РїРѕР»РѕР¶Рё
+         * С‚РµР»СЊРЅС‹Рµ С‡РёСЃР»Р°
          */
-
+         
         int S = 0;
         int NumOfStatuette = K;
         for(int TYPE = 2; TYPE < 3 && NumOfStatuette!=0; --TYPE)
@@ -129,7 +129,7 @@ int main(int argc, char *argv[])
                                 if(boardArray[i][k+1].value > 0 &&
                                    boardArray[i][k+1].isValid)
                                 {
-                                    /** Можем положить "доминошку" горизонтально*/
+                                    /** РњРѕР¶РµРј РїРѕР»РѕР¶РёС‚СЊ "РґРѕРјРёРЅРѕС€РєСѓ" РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅРѕ*/
                                     NumOfStatuette--;
                                     S += boardArray[i][k+1].value +
                                          boardArray[i][k].value;
@@ -147,7 +147,7 @@ int main(int argc, char *argv[])
                                 if(boardArray[i+1][k].value > 0 &&
                                    boardArray[i+1][k].isValid)
                                 {
-                                    /** Можем положить "доминошку" вертикально*/
+                                    /** РњРѕР¶РµРј РїРѕР»РѕР¶РёС‚СЊ "РґРѕРјРёРЅРѕС€РєСѓ" РІРµСЂС‚РёРєР°Р»СЊРЅРѕ*/
                                     NumOfStatuette--;
                                     S += boardArray[i+1][k].value +
                                          boardArray[i][k].value;
@@ -175,7 +175,7 @@ int main(int argc, char *argv[])
                                         if(boardArray[i+1][k+1].value > 0 &&
                                            boardArray[i+1][k+1].isValid)
                                         {
-                                            /** Можем положить "квадратик"*/
+                                            /** РњРѕР¶РµРј РїРѕР»РѕР¶РёС‚СЊ "РєРІР°РґСЂР°С‚РёРє"*/
                                             NumOfStatuette--;
                                             S +=    boardArray[i]  [k+1].value  +
                                                     boardArray[i+1][k+1].value  +
